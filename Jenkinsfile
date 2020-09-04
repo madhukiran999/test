@@ -5,7 +5,7 @@ pipeline {
         stage('Clone') {
             steps {
               // Get some code from a GitHub repository
-              git 'https://github.com/madhukiran/test.git' 
+              git 'https://github.com/madhukiran999/test.git' 
                 
             }
         }
