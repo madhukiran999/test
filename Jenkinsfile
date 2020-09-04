@@ -5,16 +5,16 @@ pipeline {
         stage('Clone') {
             steps {
               // Get some code from a GitHub repository
-              git 'https://github.com/kaboomin/kaboom.git' 
+              git 'https://github.com/madhukiran/test.git' 
                 
             }
         }
-        //stage('Build') {
-            //steps {
-              // Run Maven on a Unix agent.
-              //sh "mvn -Dmaven.test.failure.ignore=true clean package"
-            //}
-        //}
+        stage('Build') {
+            steps {
+               Run Maven on a Unix agent.
+              sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
         stage('Docker installing') {
             steps {
               // Installing doker.
@@ -33,14 +33,14 @@ pipeline {
             }
         }
 
-        stage('Push Docker image') {
-            steps { 
+        //stage('Push Docker image') {
+           // steps { 
                //withCredentials([string(credentialsId: 'Dockerpass', variable: 'Dockerhub')]) {
               //sh "sudo docker login -u rahulinti123 -p ${Dockerhub}"
                //sh "sudo docker push rahulinti123/my-app:${env.BUILD_NUMBER}"
-               sh "sudo docker run -p 8082:8080 -d rahulinti123/my-app:${env.BUILD_NUMBER}"
-          }
-        }  
-       }   
-    ///}
+               //sh "sudo docker run -p 8082:8080 -d rahulinti123/my-app:${env.BUILD_NUMBER}"
+         // }
+       // }  
+      // }   
+    }
 }  
